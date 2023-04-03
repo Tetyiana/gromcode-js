@@ -1,15 +1,8 @@
-function run() {
-  var a = 0;
-
-  if (a == 1) {
-    return c;
-  }
-
-  for (let i = 1; i < 10; i++) {
-    console.log(i);
-  }
-
-  return (d = a);
+const n = 6;
+let i = 2;
+let sum = 1;
+while (i <= n) {
+  sum += String(i);
+  i += 1;
 }
-
-run();
+console.log(sum);
