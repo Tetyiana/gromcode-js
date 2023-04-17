@@ -1,0 +1,1 @@
+const sum = arr => Array.isArray(arr) ? arr.reduce(function (a, b) { return (a + b) }) : null;
