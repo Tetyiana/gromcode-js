@@ -11,4 +11,4 @@ it('should get odd numbers', () => {
 it('should get sum numbers', () => {
   const result = getSum(7, 5);
   expect(result).toEqual(12);
-})
+});
