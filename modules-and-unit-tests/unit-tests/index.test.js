@@ -6,7 +6,7 @@ function reverseArray(arr) {
   return arr.slice().reverse();
 }
 
-it ('якщо аргумент не масив' () => {
-  const result = reverseArray('Array');
+it('перевірка типу аргумента ', () => {
+  const result = reverseArray(arr);
    expect(result).toEqual(null);
  });
