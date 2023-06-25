@@ -14,7 +14,7 @@ const tasks = [
  * @return {undefined}
  */
 
-export const renderTasks = tasksList => {
+const renderTasks = tasksList => {
   // put your code here
   const listElem = document.querySelector('.list');
   const listItemsElems = tasksList
