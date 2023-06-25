@@ -1,7 +1,7 @@
 'use strict';
 
 
-export const tasks = [
+const tasks = [
   { text: 'Buy milk', done: false },
   { text: 'Pick up Tom from airport', done: false },
   { text: 'Visit party', done: false },
@@ -21,7 +21,7 @@ const renderTasks = tasksList => {
     .sort((a, b) => a.done - b.done)
     .map(({ text, done }) => {
       const listItemsElem = document.createElement("li");
-      listItemsElem.classList.add('list_item');
+      listItemsElem.classList.add('list__item');
       if (done) {
         listItemsElem.classList.add('list__item_done');
       }
@@ -36,4 +36,4 @@ const renderTasks = tasksList => {
   listElem.append(...listItemsElems);
 };
 
-renderTasks(tasksList);
+renderTasks(tasks);
