@@ -4,8 +4,7 @@ export function finishForm() {
   inputElemLogin.type = "text";
   inputElemLogin.name = "login"
   finishFormElem.prepend(inputElemLogin);
-  const inputElemPassword = document.getElementsByTagName('password');
-  inputElemPassword.type = 'password';
+  finishFormElem.lastElementChild.type = 'password';
 }
 
 
