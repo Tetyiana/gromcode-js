@@ -10,5 +10,5 @@ function manageClasses() {
     anotherClasses.classList.add('another-class');
   };
 }
-export manageClasses();
+export function manageClasses();
 
