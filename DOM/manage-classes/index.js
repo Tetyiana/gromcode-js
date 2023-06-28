@@ -8,7 +8,7 @@ function manageClasses() {
   const anotherClasses = document.querySelector('.four');
   if (anotherClasses.classList.contains('some-class')) {
     anotherClasses.classList.add('another-class');
-  }
+  };
 }
 export manageClasses();
 
