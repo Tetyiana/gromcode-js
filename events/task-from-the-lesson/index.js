@@ -3,7 +3,7 @@ const pElem = document.querySelector('.rect_p');
 const spanElem = document.querySelector('.rect_span');
 
 const eventsListElem = document.querySelector('.events-list');
-let removeHandlersBtn = true;
+
 const logTarget = (text, color) => {
   eventsListElem.innerHTML += `<span style="color: ${color}; margin-left: 8px;">${text}</span>`;
 };
@@ -33,5 +33,12 @@ clearBtn.addEventListener('click', () => {
 
 const removeHandlers = document.querySelector('.remove-handlers-btn');
 removeHandlers.removeEventListener('click', () => {
-  removeHandlersBtn = false;
+  divElem.removeEventListener('click', logGreyDiv, true);
+  divElem.removeEventListener('click', logGreenDiv);
+
+  pElem.removeEventListener('click', logGreyP, true);
+  pElem.removeEventListener('click', logGreenP);
+
+  spanElem.removeEventListener('click', logGreySpan, true);
+  spanElem.removeEventListener('click', logGreenSpan);
 });
