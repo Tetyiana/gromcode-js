@@ -11,9 +11,9 @@ function handleClickOne(event) {
   console.log(event.target.textContent);
 }
 
-function handleClickTwo(event) {
-  console.log(event.target.textContent);
-}
+// function handleClickTwo(event) {
+//   console.log(event.target.textContent);
+// }
 
-elemButtonOne.addEventListener('click', handleClickOne);
-elemButtontwo.addEventListener('click', handleClickTwo);
+elemButtonOne.addEventListener('click', handleClick);
+elemButtontwo.addEventListener('click', handleClick);
