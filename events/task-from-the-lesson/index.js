@@ -16,16 +16,19 @@ const logGreenDiv = logTarget.bind(null, 'DIV', 'green');
 const logGreenP = logTarget.bind(null, 'P', 'green');
 const logGreenSpan = logTarget.bind(null, 'SPAN', 'green');
 
+const attachHandlers = document.querySelector('.attach-handlers-btn');
 
-divElem.addEventListener('click', logGreyDiv, true);
-divElem.addEventListener('click', logGreenDiv);
+function ttachHandlers() {
 
-pElem.addEventListener('click', logGreyP, true);
-pElem.addEventListener('click', logGreenP);
+  divElem.addEventListener('click', logGreyDiv, true);
+  divElem.addEventListener('click', logGreenDiv);
 
-spanElem.addEventListener('click', logGreySpan, true);
-spanElem.addEventListener('click', logGreenSpan);
+  pElem.addEventListener('click', logGreyP, true);
+  pElem.addEventListener('click', logGreenP);
 
+  spanElem.addEventListener('click', logGreySpan, true);
+  spanElem.addEventListener('click', logGreenSpan);
+};
 const clearBtn = document.querySelector('.clear-btn');
 clearBtn.addEventListener('click', () => {
   eventsListElem.innerHTML = '';
