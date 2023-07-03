@@ -1,4 +1,4 @@
-export const getLocalStorige = () => {
+export const getLocalStorageData = () => {
   return Object.entries(localStorage)
     .reduce((acc, [key, value]) => {
       let newValue;
@@ -12,3 +12,4 @@ export const getLocalStorige = () => {
       };
     }, {});
 };
+// console.log(getLocalStorageData());
