@@ -1,17 +1,16 @@
 export const getDiff = (startDate, endDate) => {
-  const getEndDate = endDate.getDate();
-  const getStartDate = startDate.getDate();
-  const dateInDiff = (getStartDate - getEndDate);
+  // const getEndDate = endDate.getDate();
+  // const getStartDate = startDate.getDate();
+  const secondsDiff = Math.abs(startDate - endDate) / 1000;
+  const daysRetail = Math.floor(secondsDiff / 86400);
+  const hoursRetail = Math.floor(secondsDiff / 3600) % 24;
+  const minutesRetail = Math.floor(secondsDiff / 60) % 60;
+  const secondsRetail = Math.floor(secondsDiff) % 60;
 
-  const days = Math.floor(dateInDiff / (24 * 60 * 60 * 1000));
-  const hours = Math.floor((dateInDiff % (24 * 60 * 60 * 1000)) / (60 * 60 * 1000));
-  const minutes = Math.floor((dateInDiff % (60 * 60 * 1000)) / (60 * 1000));
-  const seconds = Math.floor((dateInDiff % (60 * 1000)) / 1000);
-
-  return (`${days}d, ${hours}h, ${minutes}m, ${seconds}s`);
+  return `${daysRetail}d ${hoursRetail}h ${minutesRetail}m ${secondsRetail}s`;
 };
 
-// getDiff(new Date(), new Date());
+
 
 
 
