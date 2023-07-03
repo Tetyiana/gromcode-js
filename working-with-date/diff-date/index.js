@@ -11,7 +11,7 @@ export const getDiff = (startDate, endDate) => {
   return (`${days}d, ${hours}h, ${minutes}m, ${seconds}s`);
 };
 
-getDiff(new Date(), new Date());
+// getDiff(new Date(), new Date());
 
 
 
