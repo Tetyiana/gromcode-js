@@ -45,12 +45,18 @@ const renderTasks = tasksList => {
       }
 
       listItemElem.append(checkbox, text);
+
       checkbox.addEventListener('click', () => {
         listItemElem.classList.toggle('list__item_done');
+
+        saveTasks();
       });
       listElem.append(listItemElem);
     });
-  saveTasks();
+
+
+
+
 };
 
 renderTasks(tasks);
