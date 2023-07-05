@@ -5,7 +5,9 @@ const tasks = JSON.parse(localStorage.getItem('tasksList')) || [
   { text: 'Visit doctor', done: true },
   { text: 'Buy meat', done: true },
 ];
-
+const saveTasks = () => {
+  localStorage.setItem('tasksList', JSON.stringify(tasks));
+};
 const createNewElem = document.querySelector('.create-task-btn');
 const taskInput = document.querySelector('.task-input');
 const listElem = document.querySelector('.list');
@@ -20,7 +22,7 @@ createNewElem.addEventListener('click', () => {
   tasks.push(newTask);
   renderTasks(tasks);
   taskInput.value = '';
-
+  saveTasks();
 });
 
 const renderTasks = tasksList => {
@@ -48,16 +50,14 @@ const renderTasks = tasksList => {
       });
       listElem.append(listItemElem);
     });
-
+  saveTasks();
 };
 
 renderTasks(tasks);
 
 
 // put your code here
-const saveTasks = () => {
-  localStorage.setItem('tasksList', JSON.stringify(tasks));
-};
+
 
 const onStorageChange = () => {
   const updatedTasks = JSON.parse(localStorage.getItem('tasksList')) || [];
