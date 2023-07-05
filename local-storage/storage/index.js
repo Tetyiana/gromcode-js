@@ -19,7 +19,7 @@ const onCounterChange = e => {
 };
 counterElem.addEventListener('click', onCounterChange);
 const onStorageChange = e => {
-  console.log(e);
+
   counterValueElem.textContent = e.newValue;
 };
 
