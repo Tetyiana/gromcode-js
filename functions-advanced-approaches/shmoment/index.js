@@ -39,7 +39,9 @@ export const shmoment = (date) => {
   };
 
   return {
-
+    add,
+    subtract,
+    result,
   };
 };
 
