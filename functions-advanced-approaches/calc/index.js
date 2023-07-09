@@ -1,25 +1,25 @@
 const calc = initValue => {
   let result = initValue;
   const calculator = {
-    add(value) {
-      result += value;
+    add(number) {
+      result += number;
       return this;
     },
-    mult(value) {
-      result *= value;
+    mult(number) {
+      result *= number;
       return this;
     },
-    substract(value) {
-      result -= value;
+    substract(number) {
+      result -= number;
       return this;
     },
-    div(value) {
-      result /= value;
+    div(number) {
+      result /= number;
       return this;
     },
     result() {
       return result;
     }
   };
-  return calculator;
+  return this;
 };
