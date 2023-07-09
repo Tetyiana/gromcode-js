@@ -5,4 +5,4 @@ export const compose = (...funcs) => value => {
   return
 };
 const superFunc = compose(add2, square, half);
-superFunc(4);
+// superFunc(4);
