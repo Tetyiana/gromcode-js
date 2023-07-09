@@ -21,6 +21,9 @@ export const shmoment = (date) => {
       case 'seconds':
         resultDate.setSeconds(resultDate.getSeconds() + num);
         break;
+      case 'milliseconds':
+        resultDate.setSeconds(resultDate.getSeconds() + num);
+        break;
       default:
         break;
     }
