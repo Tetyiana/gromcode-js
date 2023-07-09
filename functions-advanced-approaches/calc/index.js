@@ -21,7 +21,7 @@ export const calc = (initValue) => {
       return result;
     },
   };
-  return this;
+  return calculator;
 };
 
 
