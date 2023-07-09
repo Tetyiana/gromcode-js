@@ -22,7 +22,7 @@ export const shmoment = (date) => {
         resultDate.setSeconds(resultDate.getSeconds() + num);
         break;
       case 'milliseconds':
-        resultDate.setSeconds(resultDate.getSeconds() + num);
+        resultDate.setMilliseconds(resultDate.getMilliseconds() + num);
         break;
       default:
         break;
@@ -39,9 +39,7 @@ export const shmoment = (date) => {
   };
 
   return {
-    add,
-    subtract,
-    result,
+
   };
 };
 
