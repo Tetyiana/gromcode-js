@@ -1,5 +1,5 @@
 export const addImage = (imgSrc) => {
-  return new Promise((resolve, reject) => {
+  return new Promise((resolveCd, rejectCd) => {
     const page = document.querySelector('.page');
     const image = document.createElement('img');
     image.setAttribute('alt', 'Blue Lakes');
@@ -7,11 +7,11 @@ export const addImage = (imgSrc) => {
     page.append(image);
 
     image.addEventListener('load', () => {
-      resolve(image);
+      resolveCd(image);
     });
 
     image.addEventListener('error', () => {
-      reject(new Error('Ошибка загрузки изображения'));
+      rejectCd(new Error('Image load is failed'));
     });
   });
 };
