@@ -14,7 +14,7 @@ export const addImage = (imgSrc, callback) => {
   imgElem.addEventListener('error', () => callback('Image load failed'));
 
 };
-// const imgSrc = 'https://p.bigstockphoto.com/GeFvQkBbSLaMdpKXF1Zv_bigstock-Aerial-View-Of-Blue-Lakes-And--227291596.jpg';
+const imgSrc = 'https://p.bigstockphoto.com/GeFvQkBbSLaMdpKXF1Zv_bigstock-Aerial-View-Of-Blue-Lakes-And--227291596.jpg';
 
 // callack function
 const onImageLoaded = (error, imgElem) => {
