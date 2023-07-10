@@ -6,9 +6,12 @@ export const addImage = (imgSrc) => {
     image.src = imgSrc;
     page.append(image);
 
-    image.addEventListener('load', () => {
-      resolveCd(image);
-    });
+    const onImageLoaded = () => {
+      const { width, height } = image;
+      resolveCd({ width, height });
+    };
+
+    image.addEventListener('load', onImageLoaded);
 
     image.addEventListener('error', () => {
       rejectCd(new Error('Image load is failed'));
