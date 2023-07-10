@@ -25,7 +25,7 @@ const onImageLoaded = (error, imgElem) => {
 };
 
 // examples
-addImage(
-  'https://p.bigstockphoto.com/GeFvQkBbSLaMdpKXF1Zv_bigstock-Aerial-View-Of-Blue-Lakes-And--22729159.jpg',
-  onImageLoaded,
-);
+// addImage(
+//   'https://p.bigstockphoto.com/GeFvQkBbSLaMdpKXF1Zv_bigstock-Aerial-View-Of-Blue-Lakes-And--22729159.jpg',
+//   onImageLoaded,
+// );
