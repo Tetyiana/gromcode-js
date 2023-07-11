@@ -6,7 +6,7 @@
  */
 export const requestUserData = userId => {
   // put your code here
-  const promise = new Promise((resolv, reject) => {
+  const Promise = new Promise((resolv, reject) => {
     if (userId === 'broken') {
       setTimeout(() => {
         reject(new error('User not found'));
@@ -23,6 +23,6 @@ export const requestUserData = userId => {
     }
   });
 
-  return promise;
+  return Promise;
 
 };
