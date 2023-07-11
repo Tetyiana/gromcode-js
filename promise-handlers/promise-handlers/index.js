@@ -4,17 +4,17 @@
  * @param {string} userId
  * @return {promise}
  */
-export const requestUserData = userId => {
+export const requestUserData = (userId) => {
   // put your code here
-  const Promise = new Promise((resolv, reject) => {
-    if (userId === 'broken') {
+  const promise = new Promise((resolv, reject) => {
+    if (userId === "broken") {
       setTimeout(() => {
-        reject(new error('User not found'));
+        reject(new Error("User not found"));
       }, 500);
     } else {
       setTimeout(() => {
         resolv({
-          name: 'John',
+          name: "John",
           age: 17,
           userId: `${userId}`,
           email: `${userId}@example.com`,
@@ -23,6 +23,5 @@ export const requestUserData = userId => {
     }
   });
 
-  return Promise;
-
+  return promise;
 };
