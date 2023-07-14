@@ -6,11 +6,12 @@ const defaultAvatar = 'https://avatars3.githubusercontent.com/u10001';
 userAvatarElem.src = defaultAvatar;
 
 
-const fetchUserData = (userName) => {
+const fetchUserData = async (userName) => {
   return fetch(`https://api.github.com/users/${userName}`)
-    .then((response) => response.json());
-}
+    .then(response => response.json());
+};
 const renderUserData = userData => {
+
   const { avatar_url, name, location } = userData;
   userAvatarElem.src = avatar_url;
   userNameElem.textContent = name;
@@ -19,8 +20,8 @@ const renderUserData = userData => {
     : '';
 
 }
-const showUserBtnElem = document.querySelector(".name-from__btn");
-const userNameInputElem = document.querySelector(".name-from__input");
+const showUserBtnElem = document.querySelector('.name-form__btn');
+const userNameInputElem = document.querySelector(".name-form__input");
 
 const onSearchUser = () => {
   const userName = userNameInputElem.value;
