@@ -6,7 +6,7 @@ const defaultAvatar = 'https://avatars3.githubusercontent.com/u10001';
 userAvatarElem.src = defaultAvatar;
 
 
-const fetchUserData = async (userName) => {
+const fetchUserData = (userName) => {
   return fetch(`https://api.github.com/users/${userName}`)
     .then(response => response.json());
 };
