@@ -6,11 +6,25 @@ export function getTasksList() {
     .then(response => response.json());
 }
 
+// export function getTaskById(taskId) {
+//   return fetch(baseUrl)
+//     .then(response => response.json())
+//     .then(task => task.id === taskId);
+// }
+
 export function getTaskById(taskId) {
   return fetch(baseUrl)
-    // .then(response => response.json())
-    .then(task => task.id === taskId);
+    .then(response => response.json())
+    .then(tasks => {
+      for (let i = 0; i < tasks.length; i++) {
+        if (tasks[i].id === taskId) {
+          return tasks[i];
+        }
+      }
+      return null; // Если задача не найдена
+    });
 }
+
 
 
 // examples
