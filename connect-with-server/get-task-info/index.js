@@ -8,7 +8,7 @@ export function getTasksList() {
 
 export function getTaskById(taskId) {
   return fetch(baseUrl)
-    .then(response => response.json())
+    // .then(response => response.json())
     .then(task => task.id === taskId);
 }
 
