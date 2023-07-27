@@ -1,9 +1,9 @@
 const baseUrl = "https://64b5368bf3dbab5a95c6f173.mockapi.io/api/v1/register";
 
 const registerAccount = () => {
-  const email = document.getElementsByName("email").value;
-  const password = document.getElementsByName("password").value;
-  const name = document.getElementsByName("name").value;
+  const email = document.querySelector("#email").value;
+  const password = document.querySelector("#password").value;
+  const name = document.querySelector("#name").value;
 
   const userData = { email, password, name };
 
@@ -23,12 +23,11 @@ document.addEventListener("DOMContentLoaded", () => {
     event.preventDefault();
 
     const isValid = form.reportValidity();
-
+    const buttonEnable = document.querySelector(".submit-button");
     if (!isValid) {
-      return;
+      buttonEnable.disabled = true;
     }
     registerAccount().then((responseData) => {
-      const buttonEnable = document.querySelector(".submit-button");
       buttonEnable.disabled = false;
       form.reset();
       alert(JSON.stringify(responseData));
