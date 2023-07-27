@@ -1,6 +1,6 @@
 import { getItem } from "./storage.js";
 
-const listElem = document.querySelector('.list');
+const listElem = document.querySelector(".list");
 
 const compareTasks = (a, b) => {
   if (a.done - b.done !== 0) {
@@ -15,26 +15,27 @@ const compareTasks = (a, b) => {
 };
 
 const createCheckbox = ({ done, id }) => {
-  const checkboxElem = document.createElement('input');
-  checkboxElem.setAttribute('type', 'checkbox');
-  checkboxElem.setAttribute('data-id', 'id');
+  const checkboxElem = document.createElement("input");
+  checkboxElem.setAttribute("type", "checkbox");
+  checkboxElem.setAttribute("data-id", "id");
   checkboxElem.checked = done;
-  checkboxElem.classList.add('list__item-checkbox');
+  checkboxElem.classList.add("list__item-checkbox");
 
   return checkboxElem;
 };
 
 const createListItem = ({ text, done, id }) => {
-  const listItemElem = document.createElement('li');
-  listItemElem.classList.add('list__item');
+  const listItemElem = document.createElement("li");
+  listItemElem.classList.add("list__item");
   const checkboxElem = createCheckbox({ done, id });
-  const deleteBtnElem = document.createElement('button');
-  deleteBtnElem.classList.add('list__item-delete-btn');
+
+  const deleteBtnElem = document.createElement("button");
+  deleteBtnElem.classList.add("list__item-delete-btn");
 
   if (done) {
-    listItemElem.classList.add('list__item_done');
+    listItemElem.classList.add("list__item_done");
   }
-  const textElem = document.createElement('span');
+  const textElem = document.createElement("span");
   textElem.textContent = text;
   textElem.classList.add("list__item_text");
 
