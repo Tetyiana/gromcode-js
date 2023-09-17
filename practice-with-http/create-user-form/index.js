@@ -4,17 +4,9 @@ document.addEventListener("DOMContentLoaded", function (event) {
   const form = document.querySelector(".login-form");
   const submitButton = document.querySelector(".submit-button");
 
-  form.addEventListener("input", function () {
-    if (form.checkValidity()) {
-      submitButton.disabled = false;
-    } else {
-      submitButton.disabled = true;
-    }
-  });
-
   form.addEventListener("submit", function () {
-    if (!form.reportValidity()) {
-      return;
+    if (form.reportValidity()) {
+      form.setAttribute("disabled", false);
     }
     const email = document.getElementById("email").value;
     const name = document.getElementById("name").value;
