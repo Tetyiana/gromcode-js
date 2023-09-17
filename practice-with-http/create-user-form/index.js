@@ -6,26 +6,34 @@ document.addEventListener("DOMContentLoaded", function (event) {
 
   form.addEventListener("submit", function () {
     if (form.reportValidity()) {
-      form.setAttribute("disabled", false);
+      submitButton.setAttribute("disabled", false);
     }
+
     const email = document.getElementById("email").value;
-    const name = document.getElementById("name").value;
-    const password = document.getElementById("password").value;
+    const name = document.getElementsByName("name").value;
+    const password = document.getElementsByName("password").value;
     const body = { email, name, password };
 
     function register(method, url, body = null) {
-      return fetch(url, {
-        method,
-        body: JSON.stringify(body),
-        headers: { "Content-Type": "application/json;charset=utf-8" },
-      }).then((response) => {
-        return response.json();
+      return new Promise(() => {
+        fetch(url, {
+          method,
+          body: JSON.stringify(body),
+          headers: { "Content-Type": "application/json;charset=utf-8" },
+        })
+          .then((response) => {
+            return response.json();
+          })
       });
     }
 
-    register("POST", baseUrl, body).then((response) => {
-      alert(JSON.stringify(response));
-      form.reset();
-    });
+    register("POST", baseUrl, body)
+      .then((response) => {
+        alert(JSON.stringify(response));
+        form.reset();
+        submitButton.setAttribute("disabled", 'true');
+      });
   });
 });
+
+
