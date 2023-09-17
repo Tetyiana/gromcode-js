@@ -1,40 +1,44 @@
-
-
-document.addEventListener("DOMContentLoaded", () => {
+document.addEventListener("DOMContentLoaded", function () {
   const form = document.querySelector(".login-form");
-  const buttonEnable = document.querySelector(".submit-button");
+  const submitButton = document.querySelector(".submit-button");
 
-  form.addEventListener("submit", (event) => {
+  form.addEventListener("submit", function (event) {
     event.preventDefault();
-    const baseUrl = "https://64b5368bf3dbab5a95c6f173.mockapi.io/api/v1/register";
 
-    const registerAccount = () => {
-      const email = document.getElementById("email").value;
-      const password = document.getElementById("password").value;
-      const name = document.getElementById("name").value;
-
-      const userData = { email, password, name };
-      console.log(userData);
-      return fetch(baseUrl, {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json;charset=utf-8",
-        },
-        body: JSON.stringify(userData),
-      });
-    };
-    const isValid = form.reportValidity();
-
-    if (!isValid) {
-      buttonEnable.disabled = true;
+    if (!form.reportValidity()) {
       return;
     }
 
-    registerAccount().then((responseData) => {
-      buttonEnable.disabled = false;
-      form.reset();
-      alert(JSON.stringify(responseData));
-    });
+    const email = document.getElementById("email").value;
+    const name = document.getElementById("name").value;
+    const password = document.getElementById("password").value;
+    const body = { email, name, password };
+
+    const baseUrl = "https://64b5368bf3dbab5a95c6f173.mockapi.io/api/v1/register";
+
+    register("POST", baseUrl, body)
+      .then((response) => {
+        alert(JSON.stringify(response));
+        form.reset();
+      });
   });
+
+  form.addEventListener("input", function () {
+    if (form.checkValidity()) {
+      submitButton.disabled = false;
+    } else {
+      submitButton.disabled = true;
+    }
+  });
+
+  function register(method, url, body = null) {
+    return fetch(url, {
+      method: method,
+      body: JSON.stringify(body),
+      headers: { "Content-Type": "application/json;charset=utf-8" },
+    }).then((response) => response.json());
+  }
 });
+
+
 
