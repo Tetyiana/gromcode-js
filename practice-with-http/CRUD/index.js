@@ -1,14 +1,13 @@
 const baseUrl = "https://64b5368bf3dbab5a95c6f173.mockapi.io/api/v1/users";
 
+
 export function getUsersList() {
-  return fetch(baseUrl, {
-    method: 'POST',
-    body: JSON.stringify(users),
-    headers: { "Content-Type": "application/json;charset=utf-8" },
-  }).then((response) => {
-    return response.json();
-  });
+  return fetch(baseUrl)
+    .then((response) => {
+      return response.json();
+    });
 }
+
 
 export function getUserById(userId) {
   const url = `${baseUrl}/${userId}`;
@@ -16,26 +15,34 @@ export function getUserById(userId) {
   return fetch(url)
     .then((response) => {
       return response.json();
-    })
-    .then((data) => {
-      return data;
-    })
+    });
 }
 
-export function createUser(userData) {
+
+export function createUser(user) {
   return fetch(baseUrl, {
-    method: 'PUT',
-    body: JSON.stringify(userData),
+    method: 'POST',
+    body: JSON.stringify(user),
     headers: { "Content-Type": "application/json;charset=utf-8" },
   })
     .then((response) => {
-      return response.json();
-    })
-    .then((createdUser) => {
-      return { 'User created'};
-    })
+      console.log('User created');
+    });
 }
 
+
+export function updateUser(userId, updatedUser) {
+  const url = `${baseUrl}/${userId}`;
+
+  return fetch(url, {
+    method: 'PUT',
+    body: JSON.stringify(updatedUser),
+    headers: { "Content-Type": "application/json;charset=utf-8" },
+  })
+    .then((response) => {
+      console.log('User updated');
+    });
+}
 
 
 export function deleteUser(userId) {
@@ -45,27 +52,10 @@ export function deleteUser(userId) {
     method: 'DELETE',
   })
     .then((response) => {
-      return response.json();
-    })
-    .then(() => {
-      return { 'User updated' };
-    })
+      console.log('User updated');
+    });
 }
-export function updateUser(userId, userData) {
-  const url = `${baseUrl}/${userId}`;
 
-  return fetch(url, {
-    method: 'PUT',
-    body: JSON.stringify(userData),
-    headers: { "Content-Type": "application/json;charset=utf-8" },
-  })
-    .then((response) => {
-      return response.json();
-    })
-    .then((userData) => {
-      return { 'User updated' };
-    })
-}
 
 // // examples
 // getUsersList().then(users => {
