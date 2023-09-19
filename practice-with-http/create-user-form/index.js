@@ -2,52 +2,44 @@ const baseUrl = "https://64b5368bf3dbab5a95c6f173.mockapi.io/api/v1/register";
 const form = document.querySelector(".login-form");
 const submitButton = document.querySelector(".submit-button");
 
-form.addEventListener("submit", function (event) {
+function (event) {
   event.preventDefault();
+}
 
-  if (form.reportValidity() === true) {
-    submitButton.disabled = false;
+form.addEventListener('input', function () {
+  if (form.reportValidity()) {
+    submitButton.removeAttribute('disabled');
   } else {
-    submitButton.disabled = true;
-    return;
+    submitButton.setAttribute('disabled', true);
   }
+});
+
+form.addEventListener("submit", function () {
 
   const email = document.getElementById("email").value;
-  const name = document.getElementsByName("name").value;
-  const password = document.getElementsByName("password").value;
+  const name = document.getElementById("name").value;
+  const password = document.getElementById("password").value;
   const body = { email, name, password };
 
   function register(method, url, body = null) {
-    return new Promise((resolve, reject) => {
-      fetch(url, {
-        method,
-        body: JSON.stringify(body),
-        headers: { "Content-Type": "application/json;charset=utf-8" },
+    return fetch(url, {
+      method,
+      body: JSON.stringify(body),
+      headers: { "Content-Type": "application/json;charset=utf-8" },
+    })
+      .then((response) => {
+        return response.json();
       })
-        .then((response) => {
-          if (!response.ok) {
-            throw new Error(`HTTP error! Status: ${response.status}`);
-          }
-          return response.json();
-        })
-        .then((data) => {
-          resolve(data);
-        })
-        .catch((error) => {
-          reject(error);
-        })
-        .finally(() => {
-          submitButton.disabled = false;
-        });
-    });
-  }
+
+  };
+
 
   register("POST", baseUrl, body)
     .then((response) => {
       alert(JSON.stringify(response));
       form.reset();
-    });
-});
+    })
 
+});
 
 
