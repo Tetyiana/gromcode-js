@@ -22,10 +22,10 @@ export function getUserById(userId) {
     })
 }
 
-export function createUser(user) {
+export function createUser(userData) {
   return fetch(baseUrl, {
     method: 'PUT',
-    body: JSON.stringify(user),
+    body: JSON.stringify(userData),
     headers: { "Content-Type": "application/json;charset=utf-8" },
   })
     .then((response) => {
@@ -51,18 +51,18 @@ export function deleteUser(userId) {
       return { 'User updated' };
     })
 }
-export function updateUser(userId, updatedUser) {
+export function updateUser(userId, userData) {
   const url = `${baseUrl}/${userId}`;
 
   return fetch(url, {
     method: 'PUT',
-    body: JSON.stringify(updatedUser),
+    body: JSON.stringify(userData),
     headers: { "Content-Type": "application/json;charset=utf-8" },
   })
     .then((response) => {
       return response.json();
     })
-    .then((updatedUserData) => {
+    .then((userData) => {
       return { 'User updated' };
     })
 }
