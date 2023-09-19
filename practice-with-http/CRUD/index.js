@@ -1,11 +1,5 @@
 const baseUrl = "https://64b5368bf3dbab5a95c6f173.mockapi.io/api/v1/users";
-const users = {
-  id,
-  email,
-  firstName,
-  lastName,
-  age
-}
+
 function getUsersList() {
   return fetch(baseUrl, {
     method: 'POST',
@@ -38,7 +32,7 @@ export function createUser(user) {
       return response.json();
     })
     .then((createdUser) => {
-      return createdUser;
+      return { 'User created'};
     })
 }
 
@@ -54,7 +48,7 @@ export function deleteUser(userId) {
       return response.json();
     })
     .then(() => {
-      return { message: 'Пользователь успешно удален' };
+      return { 'User updated' };
     })
 }
 export function updateUser(userId, updatedUser) {
@@ -69,7 +63,7 @@ export function updateUser(userId, updatedUser) {
       return response.json();
     })
     .then((updatedUserData) => {
-      return updatedUserData;
+      return { 'User updated' };
     })
 }
 
