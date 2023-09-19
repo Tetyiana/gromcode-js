@@ -6,8 +6,7 @@ const users = {
   lastName,
   age
 }
-
-export function getUsersList() {
+function getUsersList() {
   return fetch(baseUrl, {
     method: 'POST',
     body: JSON.stringify(users),
@@ -44,6 +43,20 @@ export function createUser(user) {
 }
 
 
+
+export function deleteUser(userId) {
+  const url = `${baseUrl}/${userId}`;
+
+  return fetch(url, {
+    method: 'DELETE',
+  })
+    .then((response) => {
+      return response.json();
+    })
+    .then(() => {
+      return { message: 'Пользователь успешно удален' };
+    })
+}
 export function updateUser(userId, updatedUser) {
   const url = `${baseUrl}/${userId}`;
 
@@ -57,19 +70,6 @@ export function updateUser(userId, updatedUser) {
     })
     .then((updatedUserData) => {
       return updatedUserData;
-    })
-}
-export function deleteUser(userId) {
-  const url = `${baseUrl}/${userId}`;
-
-  return fetch(url, {
-    method: 'DELETE',
-  })
-    .then((response) => {
-      return response.json();
-    })
-    .then(() => {
-      return { message: 'Пользователь успешно удален' };
     })
 }
 
