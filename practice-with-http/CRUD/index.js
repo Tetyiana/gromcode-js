@@ -1,6 +1,15 @@
+const baseUrl = "https://64b5368bf3dbab5a95c6f173.mockapi.io/api/v1/users";
+const users = {
+  id,
+  email,
+  firstName,
+  lastName,
+  age
+}
+
 export function getUsersList() {
-  return fetch(url, {
-    method: method,
+  return fetch(baseUrl, {
+    method: 'POST',
     body: JSON.stringify(users),
     headers: { "Content-Type": "application/json;charset=utf-8" },
   }).then((response) => {
@@ -9,19 +18,59 @@ export function getUsersList() {
 }
 
 export function getUserById(userId) {
-  // put your code here
+  const url = `${baseUrl}/${userId}`;
+
+  return fetch(url)
+    .then((response) => {
+      return response.json();
+    })
+    .then((data) => {
+      return data;
+    })
 }
 
-export function createUser(userData) {
-  // put your code here
+export function createUser(user) {
+  return fetch(baseUrl, {
+    method: 'PUT',
+    body: JSON.stringify(user),
+    headers: { "Content-Type": "application/json;charset=utf-8" },
+  })
+    .then((response) => {
+      return response.json();
+    })
+    .then((createdUser) => {
+      return createdUser;
+    })
 }
 
+
+export function updateUser(userId, updatedUser) {
+  const url = `${baseUrl}/${userId}`;
+
+  return fetch(url, {
+    method: 'PUT',
+    body: JSON.stringify(updatedUser),
+    headers: { "Content-Type": "application/json;charset=utf-8" },
+  })
+    .then((response) => {
+      return response.json();
+    })
+    .then((updatedUserData) => {
+      return updatedUserData;
+    })
+}
 export function deleteUser(userId) {
-  // put your code here
-}
+  const url = `${baseUrl}/${userId}`;
 
-export function updateUser(userId, userData) {
-  // put your code here
+  return fetch(url, {
+    method: 'DELETE',
+  })
+    .then((response) => {
+      return response.json();
+    })
+    .then(() => {
+      return { message: 'Пользователь успешно удален' };
+    })
 }
 
 // // examples
